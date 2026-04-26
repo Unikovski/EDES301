@@ -167,13 +167,15 @@ class HT16K33():
         """ Initialize class variables; Set up display; Set display to blank """
         
         # Initialize class variables
-        print("HT16K33:")
-        print("    Bus     = {0}".format(bus))
-        print("    Address = 0x{0:x}".format(address))
+        self.bus = bus
+        self.address = address
+        self.command = "/usr/sbin/i2cset -y {0} {1}".format(bus, address)
 
-        # Set up display        
+        # Set up display      
+        self._setup(blink, brightness)
         
         # Set display to blank
+        self.blank()
             
     # End def
     
@@ -195,7 +197,7 @@ class HT16K33():
     def encode(self, data, double_point=False):
         """Encode data to TM1637 format.
         
-        This function will convert the data from decimal to the TM1637 data fromt
+        This function will convert the data from decimal to the TM1637 data format
         
         :param value: Value must be between 0 and 15
         
@@ -269,7 +271,12 @@ class HT16K33():
         """Clear the display to read '0000'"""
         if self.command:
             self.set_colon(False)
-            self.update(0)
+            #self.update(0)
+            # Manually set all digits to 0
+            self.set_digit(0,0)
+            self.set_digit(1,0)
+            self.set_digit(2,0)
+            self.set_digit(3,0)
         else:
             print("HT16K33 clear()")        
 
@@ -285,9 +292,17 @@ class HT16K33():
         
         Will throw a ValueError if number is not between 0 and 9999.
         """
+        
+        if ((value < 0) or (value > 9999)):
+            raise ValueError("Value is not between 0 and 9999")
+        
+        self.set_digit(3, (value % 10))
+        self.set_digit(2, (value // 10) % 10)
+        self.set_digit(1, (value // 100) % 10)
+        self.set_digit(0, (value // 1000) % 10)
 
         # Modify code to implement this function
-        print("Set value = {0}".format(value)) # Remove when updating code
+        # # # # print("Set value = {0}".format(value)) # Remove when updating code
 
     # End def
     
@@ -309,9 +324,11 @@ class HT16K33():
         for i, char in enumerate(value):
             try:
                 # Translate the character into the value needed for hex display
+                char_value = LETTERS[char]
                 
                 # Set the display digit with the character value
-                print("Set char  = {0}".format(char)) # Remove when updating code
+                self.set_digit_raw(i, char_value)
+                #print("Set char  = {0}".format(char)) # Remove when updating code
                 
             except:
                 raise ValueError("Character {0} not supported".format(char))

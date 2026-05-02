@@ -4,9 +4,16 @@
 **Course:** EDES 301
 **Platform:** PocketBeagle
 
+📖 **For full build instructions, visit the project on Hackster.io:**
+[https://www.hackster.io/pc67/adjustable-pomodoro-study-timer-914deb](https://www.hackster.io/pc67/adjustable-pomodoro-study-timer-914deb)
+
 ---
 
 ![Pomodoro Timer](pomodoro_timer.jpeg)
+
+## Schematic
+
+![Schematic](schematic.png)
 
 ---
 

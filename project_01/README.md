@@ -6,6 +6,12 @@
 
 ---
 
+## Demo
+
+![Pomodoro Timer](pomodoro_timer.jpeg)
+
+---
+
 ## Overview
 
 A hardware Pomodoro Timer built on the PocketBeagle. The user sets the study duration using a potentiometer, then starts the timer with a button. The timer runs 4 study cycles separated by short breaks, followed by a long break after all cycles complete. A buzzer plays a song at the end of each session, and LEDs provide visual feedback on the current state.

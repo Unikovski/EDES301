@@ -6,8 +6,6 @@
 
 ---
 
-## Demo
-
 ![Pomodoro Timer](pomodoro_timer.jpeg)
 
 ---

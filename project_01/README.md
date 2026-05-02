@@ -105,7 +105,7 @@ bash configure_pins.sh
 
 ### 2. Run the timer
 ```bash
-python3 project_01.py
+sudo python3 project_01.py
 ```
 
 ### 3. Stop the timer

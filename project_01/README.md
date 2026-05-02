@@ -13,7 +13,8 @@
 
 ## Schematic
 
-![Schematic](schematic.png)
+<img width="4817" height="3617" alt="schematic" src="https://github.com/user-attachments/assets/81715c75-c19b-4edd-ba99-8789fd38e89b" />
+
 
 ---
 

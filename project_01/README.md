@@ -15,11 +15,11 @@ A hardware Pomodoro Timer built on the PocketBeagle. The user sets the study dur
 ## How It Works
 
 1. Turn the **potentiometer** to set your desired study duration (15–45 minutes)
-2. Press the **green button** to start the timer
+2. Press the **left button** to start the timer
 3. The **7-segment display** counts down in MM:SS
 4. After each study session the buzzer plays a song and a short break begins
 5. After 4 complete cycles, a long break is triggered and "Happy Birthday" plays
-6. Press the **blue button** at any time to reset
+6. Press the **right button** at any time to reset
 
 ### Timer Structure
 
@@ -47,8 +47,8 @@ A hardware Pomodoro Timer built on the PocketBeagle. The user sets the study dur
 
 | Button | Action                        |
 |--------|-------------------------------|
-| Green  | Start / Pause / Resume timer  |
-| Blue   | Reset timer                   |
+| Left  | Start / Pause / Resume timer  |
+| Right | Reset timer                   |
 
 ---
 
@@ -56,11 +56,11 @@ A hardware Pomodoro Timer built on the PocketBeagle. The user sets the study dur
 
 | Component         | Pin(s)                          | Notes                     |
 |-------------------|---------------------------------|---------------------------|
-| HT16K33 Display   | P2_09 (SDA), P2_11 (SCL)       | I2C Bus 1, Address 0x70   |
+| HT16K33 Display   | P2_09 (SDA), P2_11 (SCL)        | I2C Bus 1, Address 0x70   |
 | Buzzer            | P2_01                           | PWM                       |
 | Potentiometer     | P1_19                           | ADC (1.8V max)            |
-| Green Button      | P2_03                           | GPIO input                |
-| Blue Button       | P2_02                           | GPIO input                |
+| Left Button      | P2_03                            | GPIO input                 |
+| Right Button       | P2_02                          | GPIO input                |
 | Blue LED          | P2_04                           | GPIO output               |
 | Red LED           | P2_06                           | GPIO output               |
 | White LED         | P2_08                           | GPIO output               |
